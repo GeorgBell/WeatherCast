@@ -1,0 +1,36 @@
+{% extends "weather_n_clothes/base.html" %}
+{% block content %}
+{% load staticfiles %}
+<div class="container">
+  <div class="jumbotron">
+    <h1 class="display-4">Please fill out the forms:</h1>
+    <hr class="my-4">
+
+    <div class="row">
+      <div class="col-lg-4 col-md-12 col-sm-12 px-10">
+        <div class="card">
+          <div class="card-body">
+            <p class="card-text">
+              <form method="POST">
+                {{ form.as_p }}
+                {% csrf_token %}
+                <input type="submit" class="btn btn-primary" value="Submit">
+              </form>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-8 col-md-12 col-sm-12 px-10">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Description:</h5>
+            <p class="card-text">Depending on the weather and gender the app can recommend you 18 outfits: 9 for men and 9 for women.</p>
+          </div>
+          <img class="card-img-top" src="{% static "clothes/scheme.png" %}" alt="Card image cap">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

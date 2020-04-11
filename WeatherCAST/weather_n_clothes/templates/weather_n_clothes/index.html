@@ -1,0 +1,79 @@
+{% extends "weather_n_clothes/base.html" %}
+{% block content %}
+{% load staticfiles %}
+<div class="container">
+  <div class="jumbotron">
+    <h1 class="display-4">Welcome to WeatherCAST!</h1>
+    <hr class="my-4">
+    <h3>App for weather forecasting in your city with clothes recommendations!</p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6 col-sm-12 px-10">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">What's the weather like?</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{ city_weather.city }}</h6>
+          {% if city_weather.flag %}
+            <article class="media">
+              <div class="media-left">
+                <img src="http://openweathermap.org/img/wn/{{ city_weather.icon }}.png" alt="Image">
+              </div>
+
+              <div class="media-right">
+                <div class="content">
+                  <p>
+                    <span class="subtitle">{{ city_weather.temperature }} °C</span>
+                    <br> {{ city_weather.description }}
+                  </p>
+                </div>
+              </div>
+            </article>
+          {% else %}
+            <p>Please enter correct city</p>
+          {% endif %}
+
+          <a href="{% url 'details_form' %}" class="btn btn-secondary btn-lg btn-block" role="button">
+            Not your city? Push the button!
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- CLOTHES -->
+    <div class="col-lg-6 col-sm-12 px-10">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">What to wear?</h5>
+          {% if city_weather.flag %}
+            {% if clothes.gender == None %}
+              <div class="row">
+                <div class="col-6 px-10">
+                    <h6 class="card-subtitle mb-2 text-muted">Men's outfit</h6>
+                    {% static "" as baseUrl %}
+                    <img src="{{ baseUrl }}clothes/male{{ clothes.cloth_pic }}" class="card-img-top"></img>
+                </div>
+
+                <div class="col-6 px-10">
+                    <h6 class="card-subtitle mb-2 text-muted">Women's outfit</h6>
+                    {% static "" as baseUrl %}
+                    <img src="{{ baseUrl }}clothes/female{{ clothes.cloth_pic }}" class="card-img-top"></img>
+                </div>
+              </div>
+            {% else %}
+
+            <h6 class="card-subtitle mb-2 text-muted">Recommended outfit</h6>
+            {% static "" as baseUrl %}
+            <img src="{{ baseUrl }}{{ clothes.cloth_pic }}" class="card-img-top"></img>
+            {% endif %}
+          {% else %}
+            <p>Please enter correct city</p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
