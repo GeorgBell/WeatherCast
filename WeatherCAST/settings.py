@@ -26,8 +26,7 @@ import os
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', '@f0to1fsud7ktw84gnf_u75bg@3#2%j9&z#ss*qy2(r8ym%m$o#')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-#DEBUG = bool(os.environ.get('DJANGO_DEBUG', True) )
+DEBUG = bool(os.environ.get('DJANGO_DEBUG', True) )
 
 ALLOWED_HOSTS = ['weathercast-gbell.herokuapp.com','127.0.0.1']
 
