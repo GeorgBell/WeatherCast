@@ -63,7 +63,6 @@ def index(request, city=None, gender=None):
     # Form context for insertion to the template
     context = {'city_weather' : city_weather, 'clothes':clothes_dict}
     # Render the index view
-    print(context)
     return render(request, 'weather_n_clothes/index.html', context)
 
 
