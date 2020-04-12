@@ -18,7 +18,7 @@ def index(request, city=None, gender=None):
     # Get city of user unless it is submitted
     if city == None:
         # Get IP address from the request
-        ip = request.META.get('REMOTE_ADDR', None)
+        ip = addon.get_client_ip(request)
 
         # If using local IP address set default city to Moscow
         if ip == '127.0.0.1':
