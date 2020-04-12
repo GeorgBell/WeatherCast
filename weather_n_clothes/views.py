@@ -42,6 +42,9 @@ def index(request, city=None, gender=None):
             'description': r["weather"][0]["description"],
             'icon': r["weather"][0]["icon"],
             }
+
+        # Form the path to the recommended outfit
+        cloth_pic = addon.form_cloth_pic_path(gender, city_weather)
     except:
         # Fill in the void dictionary
         city_weather = {
@@ -53,8 +56,11 @@ def index(request, city=None, gender=None):
             'icon': None,
             }
 
-    # Form the path to the recommended outfit
-    cloth_pic = addon.form_cloth_pic_path(gender, city_weather)
+        #Form void paths
+        cloth_pic = "None"
+
+
+
     # Form injection dictionary for clothes
     clothes_dict = {'gender': gender, 'cloth_pic': cloth_pic}
     # Form context for insertion to the template
