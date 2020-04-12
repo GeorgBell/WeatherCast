@@ -1,0 +1,76 @@
+{% extends "weather_n_clothes/base.html" %}
+{% block content %}
+<div class="container ">
+  <div class="jumbotron">
+    <h1 class="display-4">About the project</h1>
+    <p class="lead">WeatherCast app developed in the course of entrance task for CTO school</p>
+    <hr class="my-4">
+    <h4>Author: George Kolokolnikov</h4>
+    <h4>Project name: Smart weather forecast app</h4>
+    <h4>Level: Asterisk task</h4>
+    <h4>Service development:</h4>
+    <ul>
+      <li>Tech stack: Python programming language and Django framework</li>
+      <li>UI: Website</li>
+      <li>Response format: Response from weather API is represented on the main page. Weather pic, temperature and description is shown</li>
+    </ul>
+    <h4>Operation pipeline:</h4>
+    <ol>
+      <li>User enters the website</li>
+      <li>User location is determined by IP</li>
+      <li>The detected city is added to string that is used as request to weather API</li>
+      <li>Response from API is parsed</li>
+      <li>Weather description is used to define the appropriate outfit</li>
+      <li>The data is rendered on the main page</li>
+      <li>If user wants to change the city, he/she presses the button</li>
+    </ol>
+    <hr class="my-4">
+    <h1 class="display-4">Links:</h1>
+
+    <div class="row">
+      <div class="col-lg-3 col-sm-6 px-10">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Project repository:</h5>
+            <p class="card-text">
+              Code, schemes, and description are here
+            </p>
+            <a class="btn btn-secondary" href="https://github.com/GeorgBell/WeatherCast" role="button">To the GitHub!</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-sm-6 px-10">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Deployment:</h5>
+            <p class="card-text">The project is deployed on the Heroku platform</p>
+            <a class="btn btn-secondary" href="https://www.heroku.com/home" role="button">To the Heroku!</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-sm-6 px-10">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Weather API:</h5>
+            <p class="card-text">Openweathermap API is used in the project</p>
+            <a class="btn btn-secondary" href="https://openweathermap.org" role="button">To the OWM!</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-sm-6 px-10">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Geolocation:</h5>
+            <p class="card-text">Geolocation is performed with GeoIP by MaxMind</p>
+            <a class="btn btn-secondary" href="https://www.maxmind.com/en/home" role="button">To the MaxMind!</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+{% endblock %}
