@@ -55,17 +55,15 @@ def index(request, city=None, gender=None):
             'description': None,
             'icon': None,
             }
-
         #Form void paths
         cloth_pic = "None"
-
-
 
     # Form injection dictionary for clothes
     clothes_dict = {'gender': gender, 'cloth_pic': cloth_pic}
     # Form context for insertion to the template
     context = {'city_weather' : city_weather, 'clothes':clothes_dict}
     # Render the index view
+    print(context)
     return render(request, 'weather_n_clothes/index.html', context)
 
 
