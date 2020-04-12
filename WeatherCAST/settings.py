@@ -29,7 +29,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', '@f0to1fsud7ktw84gnf_u75bg@3#2%
 #DEBUG = True
 DEBUG = bool( os.environ.get('DJANGO_DEBUG', True) )
 
-ALLOWED_HOSTS = ['cryptic-anchorage-26444.herokuapp.com','127.0.0.1']
+ALLOWED_HOSTS = ['weathercast-gbell.herokuapp.com','127.0.0.1']
 
 
 # Application definition
